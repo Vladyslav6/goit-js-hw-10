@@ -11,14 +11,16 @@ const backPack = {
   select: document.querySelector('.breed-select'),
   loader: document.querySelector('.loader'),
   loaderText: document.querySelector('.loader-text'),
-
   catInfo: document.querySelector('.cat-info'),
 };
 
 backPack.loader.classList.replace('is-hidden', 'loader');
 backPack.loaderText.classList.replace('is-hidden', 'loader');
 backPack.select.addEventListener('change', handleChange);
-
+//////
+//
+//
+//////
 function createMarkupId(selectCat) {
   return selectCat
     .map(
@@ -41,7 +43,10 @@ function handleChange(event) {
   backPack.select.classList.add('is-hidden');
   backPack.loader.classList.replace('is-hidden', 'loader');
   backPack.loaderText.classList.replace('is-hidden', 'loader-text');
-
+  ///////
+  //
+  //
+  //////
   fetchCatByBreed(breedId)
     .then(data => {
       backPack.select.classList.remove('is-hidden');
@@ -63,7 +68,10 @@ function handleChange(event) {
       Notiflix.Notify.failure('Failed to fetch cat information');
     });
 }
-
+///////////////
+//
+//
+//////////////
 fetchBreeds()
   .then(initialBreeds => {
     const arrBreeds = initialBreeds.map(({ name, id, url }) => ({
