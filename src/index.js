@@ -1,6 +1,6 @@
 import 'slim-select/dist/slimselect.css';
 import axios from 'axios';
-import { BreedsFet, BreedsCatFet } from './cat-api';
+import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import Notiflix from 'notiflix';
 import SlimSelect from 'slim-select';
 
@@ -47,7 +47,7 @@ function handleChange(event) {
   //
   //
   //////
-  BreedsCatFet(breedId)
+  fetchCatByBreed(breedId)
     .then(data => {
       backPack.select.classList.remove('is-hidden');
       backPack.catInfo.classList.remove('is-hidden');
@@ -72,7 +72,7 @@ function handleChange(event) {
 //
 //
 //////////////
-BreedsFet()
+fetchBreeds()
   .then(initialBreeds => {
     const arrBreeds = initialBreeds.map(({ name, id, url }) => ({
       name,
