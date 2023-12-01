@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function fetchCatByBreed(breedId) {
+export function BreedsCatFet(breedId) {
   return axios
     .get(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`)
     .then(response => {
@@ -11,7 +11,7 @@ export function fetchCatByBreed(breedId) {
       throw error;
     });
 }
-export function fetchBreeds() {
+export function BreedsFet() {
   return axios
     .get('https://api.thecatapi.com/v1/breeds')
     .then(response => {
